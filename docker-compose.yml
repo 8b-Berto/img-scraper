@@ -1,0 +1,14 @@
+version: '3'
+services:
+  express:
+    container_name: scraper
+    build:
+        context: .
+        dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3000:3000"
